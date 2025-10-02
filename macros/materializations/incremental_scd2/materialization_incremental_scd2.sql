@@ -156,6 +156,7 @@
     {{ build_sql }}
   {%- endcall -%}
 
+  {% do persist_docs(target_relation, model) %}
   {{ run_hooks(post_hooks, inside_transaction=True) }}
 
   {# Drop any temp tables we've created along the way. #}
